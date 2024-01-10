@@ -1,0 +1,35 @@
+import "../styles/navbar.css";
+import React, {useRef} from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+function Navbar() {
+	const navRef = useRef();
+
+	const showNavbar = () => {
+		navRef.current.classList.toggle(
+			"responsive_nav"
+		);
+	};
+
+	return (
+		<header>
+			<h3>AprendeMat</h3>
+			<nav ref={navRef}>
+				<a href="/#">Inicio</a>
+				<a href="/#">Temas</a>
+				<a href="/#">Blog</a>
+				<a href="/#">Acerca de</a>
+				<button
+					className="nav-btn nav-close-btn"
+					onClick={showNavbar}>
+					<FaTimes />
+				</button>
+			</nav>
+			<button
+				className="nav-btn"
+				onClick={showNavbar}>
+				<FaBars />
+			</button>
+		</header>
+	);
+}
+export default Navbar;
